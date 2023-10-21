@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top, #929292, #a7dcf1);
+    min-height: 100vh;
+}
+
+#animation {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#manette {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.commande {
+    background-color: rgba(0, 128, 0, 0.137);
+    position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    bottom: 0;
+    margin: 10px;
+    padding: 10px;
+}
+#commandeGauche {
+    left: 0;
+}
+#commandeDroite {
+    right: 0;
+}
+.bouton {
+    text-align: center;
+    vertical-align: middle;
+    width: 5vw;
+    height: 5vw;
+	background-color: rgb(100,100,100);
+    box-shadow: black 10px;
+    
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.bouton:active {
+    margin: 0.5vw;
+    width: 4vw;
+    height: 4vw;
+}
+#commandeDroite .bouton {
+    border: solid 4px transparent;
+	border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+#commandeDroite .bouton img {
+	height: 95%;
+    margin: auto;
+}
+#commandeGauche .bouton {
+    border: rgb(100,100,100) 4px solid;
+    background-color: transparent;
+}
+#ArrowUp {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+#ArrowDown {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+#ArrowRight {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+#ArrowLeft {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
