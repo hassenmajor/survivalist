@@ -2,8 +2,12 @@
     Starting point for the app
 */
 
-import * as html from 'http'
-import * as fs from 'fs'
+const express = require('express');
+const app = express();
+app.use(express.static(__dirname + '/public'));
+
+const html = require('http');
+const fs = require('fs');
 
 const port = process.env.PORT || 3000;
 const server = html.createServer((req, res) => {
