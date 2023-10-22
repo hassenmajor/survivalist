@@ -28,7 +28,7 @@ scene.add(camera);
 var joueur = new THREE.Mesh(new THREE.BoxGeometry(1,1,1,1), new THREE.MeshNormalMaterial());
 
 var loader = new ColladaLoader();
-loader.load("Hassen.dae", function(collada) {
+loader.load("./public/Hassen.dae", function(collada) {
     joueur = collada.scene;
     tick();
     scene.add(joueur);
