@@ -3,7 +3,7 @@
 */
 
 import * as html from 'http'
-import { fs } from 'fs'
+import * as fs from 'fs'
 
 const port = process.env.PORT || 3000;
 const server = html.createServer((req, res) => {
