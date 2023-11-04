@@ -44,10 +44,10 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 document.getElementById("animation").appendChild(renderer.domElement);
 
-var controls = new OrbitControls(camera, renderer.domElement);
-controls.target = joueur.position;
-controls.minPolarAngle = Math.PI / 18;
-controls.maxPolarAngle = Math.PI / 2;
+// var controls = new OrbitControls(camera, renderer.domElement);
+// controls.target = joueur.position;
+// controls.minPolarAngle = Math.PI / 18;
+// controls.maxPolarAngle = Math.PI / 2;
 
 var vecteur = new THREE.Vector3();
 var angle = NaN;
@@ -62,8 +62,8 @@ function tick() {
     if (vecteur.z>0) angle += Math.PI;
     joueur.rotation.y = angle;
     //
-    controls.target = joueur.position;
-    controls.update();
+    // controls.target = joueur.position;
+    // controls.update();
     camera.lookAt(joueur.position);
     requestAnimationFrame(tick);
 }
