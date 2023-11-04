@@ -30,7 +30,6 @@ var joueur = new THREE.Mesh(new THREE.BoxGeometry(1,1,1,1), new THREE.MeshNormal
 var loader = new ColladaLoader();
 loader.load("./public/Hassen.dae", function(collada) {
     joueur = collada.scene;
-    tick();
     scene.add(joueur);
     // joueur.translateX(2);
 })
@@ -80,11 +79,15 @@ document.addEventListener("keydown", function(event) {
     mouvement(event.key);
 });
 
-var buttons = [document.getElementById("ArrowUp"),
-document.getElementById("ArrowDown"),
-document.getElementById("ArrowRight"),
-document.getElementById("ArrowLeft"),
-document.getElementById("Carré"),
+var buttons = [
+    document.getElementById("ArrowUp"),
+    document.getElementById("ArrowDown"),
+    document.getElementById("ArrowRight"),
+    document.getElementById("ArrowLeft"),
+    document.getElementById("Croix"),
+    document.getElementById("Rond"),
+    document.getElementById("Triangle"),
+    document.getElementById("Carré"),
 ];
 buttons.forEach(element => {
     element.addEventListener("click", function() {
@@ -120,7 +123,7 @@ function mouvement(key) {
                 vecteur.set(1.1*vecteur.x,1.1*vecteur.y,1.1*vecteur.z);
             break;
         case "Carré":
-            carré();
+            carré(0);
             break;
         default:
             console.log(key);
@@ -131,17 +134,20 @@ function mouvement(key) {
         vecteur.z + joueur.position.z);
 }
 
-function carré() {
-    for (let x = 0.0; x < 1; x += 0.01)
-        setTimeout(() => {
-            console.log("Carré");
-            joueur.translateZ(0.01);
-            joueur.position.setY(-2*x*x+2*x);
-        }, x*500);
-    setTimeout(() => {
+function déplacement(i, key) {
+
+}
+
+function carré(i) {
+    if (i<=100) {
+        let x = i/100;
         joueur.translateZ(0.01);
-        joueur.position.setY(0);
-    }, 500);
+        joueur.position.setY(-2*x*x+2*x);
+        
+        setTimeout(() => {
+            carré(i+1);
+        }, 5);
+    }
 }
 
 var mtlLoader = new MTLLoader();
